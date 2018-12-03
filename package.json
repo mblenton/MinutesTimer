@@ -1,0 +1,65 @@
+{
+  "name": "minutes-timer",
+  "version": "1.0.0",
+  "description": "Small minutes and seconds timer with a lot of features, works on javascript client and server side",
+  "main": "/dist/index.ts",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "npm run tslint && npm run build-ts",
+    "test": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --exit",
+    "test:watch": "npm test -- --watch",
+    "cover": "nyc npm test",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "build-ts": "tsc",
+    "watch-ts": "tsc -w",
+    "prepublish": "npm run clean && npm run tslint && npm run test && npm run build-ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mblenton/MinutesTimer.git"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "**/*.spec.ts",
+      "**/*.json.ts",
+      "**/dist/**"
+    ],
+    "reporter": [
+      "text"
+    ],
+    "all": true
+  },
+  "keywords": [
+    "minutes",
+    "timer",
+    "minute",
+    "counter",
+    "count",
+    "javascript",
+    "typescript"
+  ],
+  "author": "Milan Rakos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mblenton/MinutesTimer/issues"
+  },
+  "homepage": "https://github.com/mblenton/MinutesTimer#readme",
+  "devDependencies": {
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "5.2.5",
+    "@types/node": "10.9.4",
+    "chai": "^4.1.2",
+    "cross-env": "^5.1.3",
+    "concurrently": "^4.0.1",
+    "mocha": "5.2.0",
+    "nyc": "^13.0.1",
+    "source-map-support": "^0.5.9",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "typescript": "3.0.3",
+    "rimraf": "^2.6.2"
+  }
+}
