@@ -1,7 +1,7 @@
 {
   "name": "minutes-timer",
   "version": "1.0.0",
-  "description": "Small minutes and seconds timer with a lot of features, works on javascript client and server side",
+  "description": "Simple minutes and seconds timer with a lot of features, works on javascript client and server side",
   "main": "/dist/index.ts",
   "scripts": {
     "clean": "rimraf dist",
@@ -47,6 +47,7 @@
     "url": "https://github.com/mblenton/MinutesTimer/issues"
   },
   "homepage": "https://github.com/mblenton/MinutesTimer#readme",
+  "readmeFilename": "README.md",
   "devDependencies": {
     "@types/chai": "^4.1.4",
     "@types/mocha": "5.2.5",
