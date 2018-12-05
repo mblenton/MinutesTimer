@@ -10,6 +10,7 @@ env:
 sudo: false
 # Specify to use node
 language: node_js
+  - "6"
 
 before_script:
   - npm run setup
