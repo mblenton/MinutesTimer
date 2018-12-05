@@ -16,7 +16,7 @@ before_script:
   - npm run setup
 
 script:
-  - npm run test-only
+  - npm run test
 
 after_success:
   - npm run typedoc
