@@ -11,7 +11,7 @@
     "test-only": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --reporter spec",
     "test": "nyc --reporter=html --reporter=text npm run test-only",
     "test:watch": "npm test -- --watch",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "coverage": "nyc --reporter=text-lcov npm run test-only | coveralls",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
