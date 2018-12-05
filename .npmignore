@@ -5,6 +5,6 @@ dev/
 docs/
 dist/test/
 .npmignore
-
+src/
 // npm pack
 minutes-timer-*.tgz
