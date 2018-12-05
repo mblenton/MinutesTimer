@@ -2,17 +2,21 @@
   "name": "minutes-timer",
   "version": "1.0.0",
   "description": "Simple minutes and seconds timer with a lot of features, works on javascript client and server side",
-  "main": "/dist/index.ts",
+  "main": "/dist/index.js",
+  "types": "/dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
+    "setup": "npm install",
+    "clean": "shx rm -rf dist/ docs/",
     "build": "npm run tslint && npm run build-ts",
     "test": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --exit",
     "test:watch": "npm test -- --watch",
     "cover": "nyc npm test",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
-    "build-ts": "tsc",
+    "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
-    "prepare": "npm run clean && npm run tslint && npm run test && npm run build-ts"
+    "prepare": "npm run clean && npm run tslint && npm run test && npm run build-ts",
+    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dev/src/",
+    "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
   },
   "repository": {
     "type": "git",
@@ -59,10 +63,12 @@
     "mocha": "5.2.0",
     "nyc": "^13.0.1",
     "rimraf": "^2.6.2",
+    "shx": "^0.3.2",
     "sinon": "^7.1.1",
     "source-map-support": "^0.5.9",
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
+    "typedoc": "^0.13.0",
     "typescript": "3.0.3"
   }
 }

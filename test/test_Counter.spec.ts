@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { Counter } from '../src/Counter';
+import { Counter } from '../src/index';
 
 const counters: Counter[] = [];
 let clock: sinon.SinonFakeTimers;
