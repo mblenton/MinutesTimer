@@ -1,5 +1,4 @@
 tsconfig.json
-.coveralls.yml
 .travis.yml
 .nojekyll
 dev/
