@@ -15,8 +15,11 @@
     "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
     "prepare": "npm run clean && npm run tslint && npm run test && npm run build-ts",
-    "typedoc": "typedoc --out ./docs --mode modules --tsconfig ./tsconfig.json ./dist",
+    "typedoc": "typedoc --out ./docs ./src/",
     "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "repository": {
     "type": "git",
