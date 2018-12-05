@@ -5,4 +5,3 @@ node_js:
   - node
 after_success:
   - npm run coverage
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
