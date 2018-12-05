@@ -2,8 +2,8 @@
   "name": "minutes-timer",
   "version": "1.0.0",
   "description": "Simple minutes and seconds timer with a lot of features, works on javascript client and server side",
-  "main": "/dist/index.js",
-  "types": "/dist/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "setup": "npm install",
     "clean": "shx rm -rf dist/ docs/",
@@ -11,7 +11,7 @@
     "test-only": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --reporter spec",
     "test": "nyc --reporter=html --reporter=text npm run test-only",
     "test:watch": "npm test -- --watch",
-    "coverage": "nyc --reporter=text-lcov npm run test-only | coveralls",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
@@ -37,7 +37,9 @@
       "**/dist/**"
     ],
     "reporter": [
-      "text"
+      "text-summary",
+      "html",
+      "lcov"
     ],
     "all": true
   },
