@@ -8,9 +8,10 @@
     "setup": "npm install",
     "clean": "shx rm -rf dist/ docs/",
     "build": "npm run tslint && npm run build-ts",
-    "test": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --reporter spec --exit",
+    "test-only": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --reporter spec",
+    "test": "nyc --reporter=html --reporter=text npm run test-only",
     "test:watch": "npm test -- --watch",
-    "cover": "nyc npm test",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
@@ -29,6 +30,7 @@
     "extension": [
       ".ts"
     ],
+    "include": "src",
     "exclude": [
       "**/*.spec.ts",
       "**/*.json.ts",
