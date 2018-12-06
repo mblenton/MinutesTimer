@@ -5,9 +5,12 @@
       "module": "commonjs",
       "esModuleInterop": true,
       "resolveJsonModule": true,
-      "outDir": "dist",
+      "outDir": "./dist",
       "noImplicitAny": true,
       "sourceMap": true,
+      "strict": true,
+      "inlineSourceMap": true,
+      "declaration": true,
       "moduleResolution": "node",
       "removeComments": true,
       "baseUrl": ".",
@@ -16,5 +19,5 @@
       }
     },
     "include": ["src/**/*.ts"],
-    "exclude": ["node_modules"]
+    "exclude": ["node_modules", "coverage"]
   }
