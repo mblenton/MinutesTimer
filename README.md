@@ -15,7 +15,9 @@ $ yarn add minutes-timer
 ## Usage
 
 ```javascript
+// import MinutesTimer from 'minutes-timer';
 const MinutesTimer = require('minutes-timer');
+
 // Initalize timer with start time (seconds)
 // const minutesTimer = new MinutesTimer(2600);
 
