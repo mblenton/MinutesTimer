@@ -1,4 +1,4 @@
-export class Counter {
+export default class MinutesTimer {
   public timer = 0;
   public display = '00:00';
   public counterState: 'created' | 'started' | 'resumed' | 'paused';
