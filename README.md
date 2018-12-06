@@ -18,10 +18,13 @@ $ yarn add minutes-timer
 const MinutesTimer = require('minutes-timer');
 // Initalize timer with start time (seconds)
 // const minutesTimer = new MinutesTimer(2600);
+
 // Initalize timer with start time (string)
 // const minutesTimer = new MinutesTimer('05:45');
+
 // Initalize timer with negative start time (string)
 // const minutesTimer = new MinutesTimer('-01:05');
+
 // Initalize timer with start time 00:00
 const minutesTimer = new MinutesTimer();
 
@@ -42,9 +45,11 @@ console.log(minutesTimer.display);
 minutesTimer.pause();
 
 // Resume timer
+minutesTimer.resume();
 
-minutesTimer..resume();
 console.log(minutesTimer.display);
 
+// Stop timer and chage time
+minutesTimer.stopAndChangeTime(2700);
 ```
 See the `test/` folder for more examples.
