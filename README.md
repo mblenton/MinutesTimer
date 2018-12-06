@@ -2,3 +2,49 @@
 [![codecov](https://codecov.io/gh/mblenton/minutes-timer/branch/master/graph/badge.svg)](https://codecov.io/gh/mblenton/minutes-timer)
 # MinutesTimer
 small minutes and seconds timer with a lot of features, works on javascript client and server side
+
+## Install
+```shell
+$ npm install minutes-timer
+```
+
+```shell
+$ yarn add minutes-timer
+```
+
+## Usage
+
+```javascript
+const MinutesTimer = require('minutes-timer');
+// Initalize timer with start time (seconds)
+// const minutesTimer = new MinutesTimer(2600);
+// Initalize timer with start time (string)
+// const minutesTimer = new MinutesTimer('05:45');
+// Initalize timer with negative start time (string)
+// const minutesTimer = new MinutesTimer('-01:05');
+// Initalize timer with start time 00:00
+const minutesTimer = new MinutesTimer();
+
+// Start timer
+minutesTimer.start();
+
+setTimeout(() => {
+  console.log(minutesTimer.display);
+}, 5000);
+  
+
+// Add seconds (positive or negative)
+minutesTimer.addSeconds(4);
+
+console.log(minutesTimer.display);
+
+// Pause timer
+minutesTimer.pause();
+
+// Resume timer
+
+minutesTimer..resume();
+console.log(minutesTimer.display);
+
+```
+See the `test/` folder for more examples.
