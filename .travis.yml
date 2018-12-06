@@ -3,4 +3,7 @@ cache: npm
 language: node_js
 node_js:
   - node
-after_success: npm run coverage
+scripts:
+  - npm install codecov -g
+after_success:
+  - codecov
