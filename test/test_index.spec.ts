@@ -123,10 +123,20 @@ describe('Counter', () => {
     expect(appCounter.counterState).to.equal('created');
     appCounter.start();
     setTimeout(() => {
+      expect(appCounter.display).to.equal('00:02');
+      expect(appCounter.counterState).to.equal('started');
       done();
     }, 2200);
     clock.tick(2200);
-    expect(appCounter.display).to.equal('00:02');
-    expect(appCounter.counterState).to.equal('started');
+  });
+  it('should add negative seconds to counter', done => {
+    const appCounter = new Counter();
+    appCounter.start();
+    appCounter.addSeconds(-400);
+    setTimeout(() => {
+      expect(appCounter.display).to.equal('-06:38');
+      done();
+    }, 2200);
+    clock.tick(2200);
   });
 });
