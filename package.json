@@ -10,6 +10,7 @@
     "build": "npm run tslint && npm run build-ts",
     "test-only": "mocha --opts ./mocha.opts $(find . -name 'test_*.spec.ts' ! -ipath '*node_modules*') --reporter spec",
     "test": "nyc --reporter=json --reporter=text npm run test-only",
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "test:watch": "npm test -- --watch",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc -d",
