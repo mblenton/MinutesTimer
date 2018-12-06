@@ -36,12 +36,16 @@
       "**/*.json.ts",
       "**/dist/**"
     ],
+    "require": [
+      "ts-node/register"
+    ],
     "reporter": [
       "text-summary",
       "html",
       "lcov"
     ],
-    "all": true
+    "sourceMap": true,
+    "instrument": true
   },
   "keywords": [
     "minutes",
