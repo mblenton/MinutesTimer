@@ -4,12 +4,17 @@
 small minutes and seconds timer, works on javascript client and server side
 
 ## Install
-```shell
-$ npm install minutes-timer
+
+Install with npm:
+
+```bash
+npm install minutes-timer
 ```
 
-```shell
-$ yarn add minutes-timer
+Install with yarn:
+
+```bash
+yarn add minutes-timer
 ```
 
 ## Usage
