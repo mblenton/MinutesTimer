@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { Counter } from '../src/index';
+import MinutesTimer from '../src/index';
 
-const counters: Counter[] = [];
+const counters: MinutesTimer[] = [];
 let clock: sinon.SinonFakeTimers;
 
 before('start one counter', done => {
   clock = sinon.useFakeTimers();
-  counters.push(new Counter().getTime());
+  counters.push(new MinutesTimer().getTime());
   setTimeout(() => {
     counters[0].pause();
   }, 3100);
@@ -24,18 +24,18 @@ after(function () {
   clock.restore();
 });
 
-describe('Counter', () => {
+describe('MinutesTimer', () => {
   it('should display elapsed time', () => {
     expect(counters[0].display).to.equal('00:07');
   });
 
   it('should return provided seconds in initalisation in mils', done => {
-    let appCounter = new Counter(60).getTime();
+    let appCounter = new MinutesTimer(60).getTime();
     setTimeout(() => {
       expect(appCounter.display).to.equal('01:02');
     }, 2200);
     clock.tick(2200);
-    appCounter = new Counter().getTime();
+    appCounter = new MinutesTimer().getTime();
     setTimeout(() => {
       expect(appCounter.display).to.equal('00:05');
       done();
@@ -96,7 +96,7 @@ describe('Counter', () => {
   });
 
   it('should return provided seconds in initalisation in "mm:ss"', done => {
-    const appCounter = new Counter('11:11').getTime();
+    const appCounter = new MinutesTimer('11:11').getTime();
     setTimeout(() => {
       expect(appCounter.display).to.equal('11:13');
       done();
@@ -105,12 +105,12 @@ describe('Counter', () => {
   });
 
   it('should return provided seconds in initalisation in "mm:ss"', () => {
-    const appCounter = new Counter('12:15').getTime();
+    const appCounter = new MinutesTimer('12:15').getTime();
     expect(appCounter.display).to.equal('12:15');
   });
   
   it('should return provided seconds in initalisation in "mm:ss"', (done) => {
-    const appCounter = new Counter('-00:49').getTime();
+    const appCounter = new MinutesTimer('-00:49').getTime();
     setTimeout(() => {
       expect(appCounter.display).to.equal('-00:01');
       done();
@@ -119,14 +119,24 @@ describe('Counter', () => {
   });
 
   it('should return brand new counter object', done => {
-    const appCounter = new Counter();
+    const appCounter = new MinutesTimer();
     expect(appCounter.counterState).to.equal('created');
     appCounter.start();
     setTimeout(() => {
+      expect(appCounter.display).to.equal('00:02');
+      expect(appCounter.counterState).to.equal('started');
       done();
     }, 2200);
     clock.tick(2200);
-    expect(appCounter.display).to.equal('00:02');
-    expect(appCounter.counterState).to.equal('started');
+  });
+  it('should add negative seconds to counter', done => {
+    const appCounter = new MinutesTimer();
+    appCounter.start();
+    appCounter.addSeconds(-400);
+    setTimeout(() => {
+      expect(appCounter.display).to.equal('-06:38');
+      done();
+    }, 2200);
+    clock.tick(2200);
   });
 });

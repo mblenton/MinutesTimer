@@ -1,7 +1,7 @@
-export class Counter {
+export default class MinutesTimer {
   public timer = 0;
   public display = '00:00';
-  public counterState = 'created';
+  public counterState: 'created' | 'started' | 'resumed' | 'paused';
   private addTime: number;
   private startDate = 0;
   private pausedTime = 0;
@@ -14,6 +14,7 @@ export class Counter {
       localStartTime = this.getSecondsFromStringTime(startTime);
     }
     this.addTime = localStartTime * 1000;
+    this.counterState = 'created';
   }
 
   public addSeconds (timeInSeconds: number) {
