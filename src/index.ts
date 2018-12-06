@@ -7,7 +7,7 @@ export class Counter {
   private pausedTime = 0;
   private minutes = '00';
   private seconds = '00';
-  private timerId: NodeJS.Timer;
+  private timerId!: NodeJS.Timer;
   constructor (startTime?: string | number) {
     let localStartTime = 0;
     if (startTime) {
