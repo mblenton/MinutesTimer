@@ -15,7 +15,7 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build-ts": "tsc -d",
     "watch-ts": "tsc -w",
-    "prepare": "npm run clean && npm run tslint && npm run test && npm run build-ts",
+    "prepare": "npm run clean && npm run tslint && npm run test",
     "typedoc": "typedoc --out ./docs ./src/",
     "posttypedoc": "shx cp .nojekyll docs/.nojekyll"
   },
