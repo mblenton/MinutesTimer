@@ -1,23 +1,22 @@
 
 {
-    "compilerOptions": {
-      "target": "es6",
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "resolveJsonModule": true,
-      "outDir": "./dist",
-      "noImplicitAny": true,
-      "sourceMap": true,
-      "strict": true,
-      "inlineSourceMap": true,
-      "declaration": true,
-      "moduleResolution": "node",
-      "removeComments": true,
-      "baseUrl": ".",
-      "paths": {
-        "*": ["node_modules/*", "src/types/*"]
-      }
-    },
-    "include": ["src/**/*.ts"],
-    "exclude": ["node_modules", "coverage"]
-  }
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "./dist",
+    "noImplicitAny": true,
+    "strict": true,
+    "inlineSourceMap": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "removeComments": true,
+    "baseUrl": ".",
+    "paths": {
+      "*": ["node_modules/*", "src/types/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "coverage"]
+}
