@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import sinon from 'sinon';
+import * as sinon from 'sinon';
 import MinutesTimer from '../src/index';
 
 const counters: MinutesTimer[] = [];
@@ -108,7 +108,7 @@ describe('MinutesTimer', () => {
     const appCounter = new MinutesTimer('12:15').getTime();
     expect(appCounter.display).to.equal('12:15');
   });
-  
+
   it('should return provided seconds in initalisation in "mm:ss"', (done) => {
     const appCounter = new MinutesTimer('-00:49').getTime();
     setTimeout(() => {

@@ -85,7 +85,7 @@ export default class MinutesTimer {
 
   private getSecondsFromStringTime = (stringTime: string | number): number => {
     let negative = '';
-    if (stringTime && typeof stringTime === 'string' && stringTime.includes(':')) {
+    if (stringTime && typeof stringTime === 'string' && stringTime.indexOf(':') > -1) {
       const splitTime = stringTime.split(':');
       let min = splitTime[0];
       const sec = splitTime[1];
